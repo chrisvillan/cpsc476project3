@@ -1,0 +1,26 @@
+upstream minitwit{
+  server 127.0.0.1:5000 max_fails=3 fail_timeout=15s;
+  server 127.0.0.1:5001 max_fails=3 fail_timeout=15s;
+  server 127.0.0.1:5002 max_fails=3 fail_timeout=15s;
+}
+
+server {
+listen 80;
+location / {
+  proxy_pass http://minitwit;
+}
+}
+
+
+upstream mt_api.py{
+  server 127.0.0.1:5003 max_fails=3 fail_timeout=15s;
+  server 127.0.0.1:5004 max_fails=3 fail_timeout=15s;
+  server 127.0.0.1:5005 max_fails=3 fail_timeout=15s;
+}
+
+server {
+listen 8080;
+location / {
+  proxy_pass http://mit_api.py;
+}
+}
