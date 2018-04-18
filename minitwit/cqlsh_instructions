@@ -1,0 +1,23 @@
+CREATE KEYSPACE minitwit_database
+WITH REPLICATION = { 'class' : 'SimpleStrategy',
+'replication_factor' : 1}
+
+USE minitwit_database;
+CREATE TABLE user(
+  user_id int,
+  username text,
+  email text,
+  password text,
+  PRIMARY KEY (username));
+
+INSERT INTO user(user_id, username, email, password
+) VALUES('1', 'allenapple', 'allen@gmail.com', 'passallen');
+
+INSERT INTO user(user_id, username, email, password
+) VALUES('1', 'billberry', 'bill@gmail.com', 'passbill');
+
+INSERT INTO user(user_id, username, email, password
+) VALUES('1', 'codycarrot', 'cody@gmail.com', 'passcody');
+
+INSERT INTO user(user_id, username, email, password
+) VALUES('1', 'danieldate', 'daniel@gmail.com', 'passdaniel');

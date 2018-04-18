@@ -16,7 +16,6 @@ from flask import Flask, request, session, url_for, redirect, \
      render_template, abort, g, flash, _app_ctx_stack
 from werkzeug import check_password_hash, generate_password_hash
 
-
 # configuration
 DATABASE = '/tmp/minitwit.db'
 PER_PAGE = 30
@@ -27,16 +26,6 @@ SECRET_KEY = b'_5#y2L"F4Q8z\n\xec]/'
 app = Flask('minitwit')
 app.config.from_object(__name__)
 app.config.from_envvar('MINITWIT_SETTINGS', silent=True)
-
-
-
-
-
-
-
-
-
-
 
 def format_datetime(timestamp):
     """Format a timestamp for display."""
